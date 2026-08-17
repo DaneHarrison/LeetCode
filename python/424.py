@@ -10,13 +10,11 @@ def characterReplacement(self, s: str, k: int) -> int:
     for r, rChar in enumerate(s):
         counts[rChar] +=1 
         maxFreq = max(maxFreq, counts[rChar])
-        length = r - l + 1
         
-        while length - maxFreq > k:
+        while r - l + 1 - maxFreq > k:
             counts[s[l]] -= 1
             l += 1
         
-        length = r - l + 1
-        res = max(res, length)
+        res = max(res, r - l + 1)
         
     return res
