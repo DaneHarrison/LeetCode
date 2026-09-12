@@ -1,5 +1,8 @@
+from typing import List
+from collections import defaultdict
+
 class Solution:
-    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+	def validTree(self, n: int, edges: List[List[int]]) -> bool:
 		if len(edges) != n - 1:
 			return False
 		
@@ -31,7 +34,7 @@ class Solution:
 			if not union(s, e):
 				return False
 		
-		groups = defaultdict(list):
+		groups = defaultdict(list)
 		for curr in parent:
 			root = find(curr)
 			groups[root].append(curr)
